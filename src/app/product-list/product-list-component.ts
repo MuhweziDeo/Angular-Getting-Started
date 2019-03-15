@@ -1,12 +1,16 @@
 import { Component } from "@angular/core";
 
 @Component({
-    selector:"pm-products",
-    templateUrl:"./product-list-component.html"
+    selector: 'pm-products',
+    templateUrl: './product-list-component.html'
 })
-export class ProductListComponent { 
-    pageTitle:string='Product List';
-    products:any[]=[
+export class ProductListComponent {
+    pageTitle: string = 'Product List';
+    imageWidth:number=50;
+    imageMargin:number=2;
+    showImage: boolean = false;
+    listFilter:string=' ';
+    products: any[] = [
         {
             "productId": 1,
             "productName": "Leaf Rake",
@@ -28,4 +32,8 @@ export class ProductListComponent {
             "imageUrl": "https://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
           },
     ]
+    toggleImage (): void{
+        this.showImage= !this.showImage;
+    }
+    
 };
