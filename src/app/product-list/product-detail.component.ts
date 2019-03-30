@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IProducts } from './products'
+import { IProducts } from './products';
 @Component({
   // selector: 'pm-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css'],
-  
 })
 export class ProductDetailComponent implements OnInit {
-  product: IProducts,
-  pageTitle:string="product"
-  constructor(private route : ActivatedRoute,private router:Router) { }
+  product: IProducts;
+  pageTitle: string = 'product';
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     // console.log(this.route.params._value.id)
-    let id = this.route.snapshot.paramMap.get('id')
+    const id = this.route.snapshot.paramMap.get('id')
     console.log(id)
     this.product ={
       "productId": parseInt(id),
@@ -30,5 +29,5 @@ export class ProductDetailComponent implements OnInit {
   onBack():void{
       this.router.navigate(['/products']);
   }
-  
+
 }
